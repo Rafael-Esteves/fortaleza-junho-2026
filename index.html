@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Junho em Fortaleza · do Rafa pra Manitoba & Neskau</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --terracotta: #B85A3A;
+    --terracotta-deep: #92422A;
+    --clay: #D4906F;
+    --sand: #E8D5B5;
+    --cream: #F7F0E1;
+    --bone: #FBF6EA;
+    --seafoam: #5B9491;
+    --seafoam-deep: #3D6E6B;
+    --forest: #1E3635;
+    --forest-deep: #122322;
+    --slate: #5D6F7E;
+    --slate-deep: #2F3E4D;
+    --gold: #C9A24E;
+    --shadow: 0 10px 40px rgba(30, 54, 53, 0.10);
+    --shadow-lg: 0 20px 60px rgba(30, 54, 53, 0.16);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--forest);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 92vh;
+    background:
+      radial-gradient(ellipse at top right, rgba(232, 213, 181, 0.45) 0%, transparent 55%),
+      radial-gradient(ellipse at bottom left, rgba(91, 148, 145, 0.45) 0%, transparent 55%),
+      linear-gradient(135deg, #B85A3A 0%, #D4906F 50%, #5B9491 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 8%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: rgba(247, 240, 225, 0.18);
+    border-radius: 50%;
+    filter: blur(80px);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: rgba(61, 110, 107, 0.4);
+    border-radius: 50%;
+    filter: blur(80px);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 920px;
+  }
+
+  .eyebrow {
+    font-size: 0.82rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    opacity: 0.95;
+    margin-bottom: 26px;
+    font-weight: 600;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 9vw, 6.5rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin-bottom: 24px;
+    text-shadow: 0 4px 30px rgba(30, 54, 53, 0.25);
+  }
+
+  .hero h1 .accent {
+    display: block;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 0.5em;
+    margin-top: 10px;
+    opacity: 0.95;
+  }
+
+  .hero .subtitle {
+    font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+    font-weight: 400;
+    margin-bottom: 40px;
+    opacity: 0.95;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .meta-pills {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .pill {
+    padding: 14px 24px;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.3);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .pill strong { font-weight: 700; }
+
+  /* SECTIONS */
+  section {
+    padding: 90px 24px;
+    position: relative;
+  }
+
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    color: var(--terracotta);
+    font-size: 0.78rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 18px;
+    color: var(--forest);
+  }
+
+  .section-intro {
+    font-size: 1.08rem;
+    max-width: 720px;
+    margin-bottom: 50px;
+    color: rgba(30, 54, 53, 0.75);
+  }
+
+  /* PITCH */
+  .pitch-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .pitch-card {
+    padding: 40px;
+    border-radius: 24px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pitch-card.cold {
+    background: linear-gradient(135deg, var(--slate) 0%, var(--slate-deep) 100%);
+  }
+
+  .pitch-card.warm {
+    background: linear-gradient(135deg, var(--terracotta) 0%, var(--clay) 100%);
+  }
+
+  .pitch-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.2);
+    margin-bottom: 16px;
+  }
+
+  .pitch-card h3 {
+    font-size: 1.7rem;
+    margin-bottom: 12px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+
+  .pitch-card p {
+    opacity: 0.95;
+    margin-bottom: 24px;
+  }
+
+  .pitch-stats {
+    display: flex;
+    gap: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.25);
+  }
+
+  .pitch-stat { flex: 1; }
+
+  .pitch-stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .pitch-stat-label {
+    font-size: 0.78rem;
+    opacity: 0.85;
+    letter-spacing: 0.05em;
+  }
+
+  /* ESSENTIALS */
+  .essentials { background: var(--bone); }
+
+  .essentials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 22px;
+    margin-top: 40px;
+  }
+
+  .info-card {
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 32px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .info-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+  }
+
+  .info-label {
+    color: var(--terracotta);
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+
+  .info-route {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--forest);
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+  }
+
+  .info-route .arrow {
+    color: var(--seafoam);
+    margin: 0 6px;
+    display: inline-block;
+  }
+
+  .info-date {
+    color: rgba(30, 54, 53, 0.65);
+    font-size: 0.95rem;
+    margin-bottom: 22px;
+  }
+
+  .times {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 16px;
+    background: white;
+    border-radius: 14px;
+    margin-bottom: 18px;
+  }
+
+  .time-block {
+    flex: 1;
+    text-align: center;
+  }
+
+  .time-block .hour {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--forest);
+    letter-spacing: -0.02em;
+  }
+
+  .time-block .airport {
+    font-size: 0.72rem;
+    color: rgba(30, 54, 53, 0.55);
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .flight-line {
+    flex: 1.4;
+    height: 2px;
+    background: var(--seafoam);
+    position: relative;
+  }
+
+  .flight-line::before, .flight-line::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--seafoam);
+  }
+
+  .flight-line::before { left: 0; }
+  .flight-line::after { right: 0; }
+
+  .info-link {
+    margin-top: auto;
+    color: var(--terracotta);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.92rem;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+    align-self: flex-start;
+    padding-top: 4px;
+  }
+
+  .info-link:hover { border-bottom-color: var(--terracotta); }
+
+  .info-card.stay {
+    background: linear-gradient(135deg, var(--seafoam) 0%, var(--seafoam-deep) 100%);
+    color: white;
+  }
+
+  .info-card.stay .info-label { color: var(--sand); }
+  .info-card.stay .info-route { color: white; }
+  .info-card.stay .info-date { color: rgba(255,255,255,0.85); }
+  .info-card.stay .info-link { color: var(--sand); }
+
+  .stay-detail {
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(10px);
+    padding: 18px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+  }
+
+  .stay-detail .nights {
+    font-size: 1.7rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stay-detail .nights-label {
+    font-size: 0.85rem;
+    opacity: 0.95;
+  }
+
+  /* ACTIVITIES */
+  .activities { background: var(--cream); }
+
+  .activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 22px;
+    margin-top: 40px;
+  }
+
+  .activity {
+    background: var(--bone);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 12px rgba(30, 54, 53, 0.05);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .activity:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .activity-image {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .activity-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(30, 54, 53, 0.45) 100%);
+  }
+
+  .badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 1;
+    background: rgba(251, 246, 234, 0.95);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--forest);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+  }
+
+  .badge.hero-pick {
+    background: var(--terracotta);
+    color: white;
+  }
+
+  .activity-content {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .activity h3 {
+    font-size: 1.22rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+    color: var(--forest);
+    letter-spacing: -0.01em;
+  }
+
+  .activity .location {
+    color: var(--seafoam-deep);
+    font-size: 0.76rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .activity p {
+    color: rgba(30, 54, 53, 0.75);
+    font-size: 0.93rem;
+    margin-bottom: 16px;
+    flex: 1;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    background: var(--cream);
+    padding: 5px 12px;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    color: var(--forest);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  /* Activity backgrounds: photos hospedadas no Wikimedia Commons (estáveis) com gradiente de fallback */
+  .img-kitesurf-cumbuco {
+    background-image:
+      url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Fortaleza%2C_Cear%C3%A1%2C_Brazil%2C_Kitesurf_in_Cumbuco_Beach_-_panoramio.jpg/960px-Fortaleza%2C_Cear%C3%A1%2C_Brazil%2C_Kitesurf_in_Cumbuco_Beach_-_panoramio.jpg'),
+      linear-gradient(135deg, var(--seafoam) 0%, var(--forest) 100%);
+  }
+  .img-kitesurf-prea {
+    background-image:
+      url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/A_beleza_de_um_voo_de_kitesurf.jpg/960px-A_beleza_de_um_voo_de_kitesurf.jpg'),
+      linear-gradient(135deg, var(--terracotta) 0%, var(--seafoam) 100%);
+  }
+  .img-lencois {
+    background-image:
+      url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Dunas_e_lagoas_dos_Len%C3%A7ois_Maranhenses_%28cropped%29.jpg/960px-Dunas_e_lagoas_dos_Len%C3%A7ois_Maranhenses_%28cropped%29.jpg'),
+      linear-gradient(135deg, var(--sand) 0%, var(--seafoam) 100%);
+  }
+  .img-jeri {
+    background-image:
+      url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Jericoacoara_Beach%2C_Jijoca_de_Jericoacoara_-_State_of_Cear%C3%A1%2C_Brazil_-_panoramio.jpg/960px-Jericoacoara_Beach%2C_Jijoca_de_Jericoacoara_-_State_of_Cear%C3%A1%2C_Brazil_-_panoramio.jpg'),
+      linear-gradient(135deg, var(--terracotta) 0%, var(--sand) 100%);
+  }
+  .img-canoa {
+    background-image:
+      url('https://upload.wikimedia.org/wikipedia/commons/b/b3/CE_-_Canoa_Quebrada_-_Fal%C3%A9sia.jpg'),
+      linear-gradient(135deg, var(--clay) 0%, var(--forest) 100%);
+  }
+  .img-futuro {
+    background-image:
+      url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Praia_do_Futuro%2C_Fortaleza%2C_setembro_de_2023_%281%29.jpg/960px-Praia_do_Futuro%2C_Fortaleza%2C_setembro_de_2023_%281%29.jpg'),
+      linear-gradient(135deg, var(--seafoam) 0%, var(--sand) 100%);
+  }
+  .img-morro {
+    background-image:
+      url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Morro_Branco%2C_Beberibe-CE.jpg/960px-Morro_Branco%2C_Beberibe-CE.jpg'),
+      linear-gradient(135deg, var(--clay) 0%, var(--sand) 100%);
+  }
+  .img-beachpark {
+    background-image:
+      url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Cumbuco_beach.jpeg/960px-Cumbuco_beach.jpeg'),
+      linear-gradient(135deg, var(--seafoam) 0%, var(--terracotta) 100%);
+  }
+  .img-mucuripe {
+    background-image:
+      url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Mar2024._Mercado_Central_de_Fortaleza%2C_Cear%C3%A1%2C_Brazil_02.jpg/960px-Mar2024._Mercado_Central_de_Fortaleza%2C_Cear%C3%A1%2C_Brazil_02.jpg'),
+      linear-gradient(135deg, var(--terracotta) 0%, var(--forest) 100%);
+  }
+
+  /* BUDGET */
+  .budget {
+    background: linear-gradient(135deg, var(--forest) 0%, var(--forest-deep) 100%);
+    color: white;
+  }
+
+  .budget .section-eyebrow { color: var(--gold); }
+  .budget .section-title { color: white; }
+  .budget .section-intro { color: rgba(255,255,255,0.75); }
+
+  .budget-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    margin-top: 40px;
+  }
+
+  .budget-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 28px 24px;
+    border-radius: 16px;
+  }
+
+  .budget-card .item {
+    color: var(--sand);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+
+  .budget-card .price {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+
+  .budget-card .price .currency {
+    font-size: 0.95rem;
+    opacity: 0.65;
+    font-weight: 500;
+    margin-right: 4px;
+  }
+
+  .budget-card .note {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .budget-total {
+    margin-top: 32px;
+    padding: 30px;
+    background: linear-gradient(135deg, var(--terracotta) 0%, var(--clay) 100%);
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .budget-total .label-block {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .budget-total .label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 700;
+    opacity: 0.9;
+    margin-bottom: 6px;
+  }
+
+  .budget-total .parcela-line {
+    font-size: 0.92rem;
+    opacity: 0.9;
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  .budget-total .amount-block {
+    text-align: right;
+  }
+
+  .budget-total .amount {
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .budget-total .amount-sub {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    margin-top: 6px;
+  }
+
+  .callouts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 28px;
+  }
+
+  .callout {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    padding: 22px 24px;
+  }
+
+  .callout.note {
+    border-left: 3px solid var(--seafoam);
+  }
+
+  .callout.warn {
+    border-left: 3px solid var(--gold);
+  }
+
+  .callout-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .callout.note .callout-title { color: var(--seafoam); }
+  .callout.warn .callout-title { color: var(--gold); }
+
+  .callout p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .callout p strong { color: white; }
+
+  /* CTA */
+  .cta {
+    background:
+      radial-gradient(ellipse at top, rgba(232, 213, 181, 0.25) 0%, transparent 55%),
+      linear-gradient(135deg, #B85A3A 0%, #D4906F 50%, #5B9491 100%);
+    color: white;
+    text-align: center;
+    padding: 110px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta h2 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    margin-bottom: 22px;
+    line-height: 1.05;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta p {
+    font-size: 1.12rem;
+    opacity: 0.95;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-buttons {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: white;
+    color: var(--terracotta);
+    padding: 18px 36px;
+    border-radius: 100px;
+    font-weight: 800;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  }
+
+  .cta-button.secondary {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--forest-deep);
+    color: rgba(255,255,255,0.55);
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 0.85rem;
+  }
+
+  footer .heart { color: var(--terracotta); }
+
+  /* RESPONSIVE */
+  @media (max-width: 800px) {
+    section { padding: 70px 20px; }
+    .pitch-grid { grid-template-columns: 1fr; }
+    .essentials-grid { grid-template-columns: 1fr; }
+    .callouts { grid-template-columns: 1fr; }
+    .meta-pills { flex-direction: column; align-items: center; }
+    .pill { width: 100%; max-width: 320px; text-align: center; }
+    .budget-total { flex-direction: column; align-items: flex-start; }
+    .budget-total .amount-block { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Convite do Rafa pra Manitoba &amp; Neskau · Junho 2026</div>
+    <h1>
+      Fugindo do Frio
+      <span class="accent">um mês de Fortaleza pra trocar a chuva pelo vento</span>
+    </h1>
+    <p class="subtitle">
+      Enquanto Floripa entra no auge do inverno chuvoso, a gente atravessa o país
+      e passa o mês de junho inteiro no sol do Ceará. Voos, hospedagem e roteiro
+      já mapeados. Só falta vocês topar.
+    </p>
+    <div class="meta-pills">
+      <div class="pill"><strong>30 dias</strong> em Fortaleza</div>
+      <div class="pill"><strong>30/05 — 30/06</strong> de 2026</div>
+      <div class="pill"><strong>Rafa + Manitoba + Neskau</strong></div>
+    </div>
+  </div>
+</header>
+
+<section class="pitch">
+  <div class="container">
+    <div class="section-eyebrow">A ideia</div>
+    <h2 class="section-title">Por que isso faz todo sentido</h2>
+    <p class="section-intro">
+      Junho é a pior época pra ficar em Floripa: frente fria, mar revolto, dias curtos
+      e mofo até no chinelo. No mesmo mês, o Ceará vive sua melhor temporada do ano —
+      seca, ensolarada, com vento alísio constante e gente animada.
+    </p>
+
+    <div class="pitch-grid">
+      <div class="pitch-card cold">
+        <div class="pitch-tag">Cenário A · Ficar</div>
+        <h3>Floripa em junho</h3>
+        <p>Frente fria atrás de frente fria. Casa fechada, surfe ruim, vontade de sair de casa beirando zero.</p>
+        <div class="pitch-stats">
+          <div class="pitch-stat">
+            <div class="pitch-stat-value">14°C</div>
+            <div class="pitch-stat-label">Mínima média</div>
+          </div>
+          <div class="pitch-stat">
+            <div class="pitch-stat-value">~120mm</div>
+            <div class="pitch-stat-label">de chuva no mês</div>
+          </div>
+          <div class="pitch-stat">
+            <div class="pitch-stat-value">5h30</div>
+            <div class="pitch-stat-label">de sol/dia</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pitch-card warm">
+        <div class="pitch-tag">Cenário B · Ir</div>
+        <h3>Fortaleza em junho</h3>
+        <p>Sol firme, vento alísio cravado, mar quente. A janela perfeita pra kite, rodar litoral e viver na rua.</p>
+        <div class="pitch-stats">
+          <div class="pitch-stat">
+            <div class="pitch-stat-value">28°C</div>
+            <div class="pitch-stat-label">Máxima média</div>
+          </div>
+          <div class="pitch-stat">
+            <div class="pitch-stat-value">25 nós</div>
+            <div class="pitch-stat-label">vento médio</div>
+          </div>
+          <div class="pitch-stat">
+            <div class="pitch-stat-value">9h</div>
+            <div class="pitch-stat-label">de sol/dia</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="essentials">
+  <div class="container">
+    <div class="section-eyebrow">A logística</div>
+    <h2 class="section-title">O essencial já tá mapeado</h2>
+    <p class="section-intro">
+      Voos selecionados no Skyscanner e um Airbnb com piscina pra base de operações.
+      Tudo flexível, mas é um ponto de partida concreto pra fechar logo antes de subir o preço.
+    </p>
+
+    <div class="essentials-grid">
+      <div class="info-card">
+        <div class="info-label">Voo de ida</div>
+        <div class="info-route">FLN <span class="arrow">→</span> FOR</div>
+        <div class="info-date">sábado, 30 de maio de 2026</div>
+        <div class="times">
+          <div class="time-block">
+            <div class="hour">10:00</div>
+            <div class="airport">Floripa</div>
+          </div>
+          <div class="flight-line"></div>
+          <div class="time-block">
+            <div class="hour">15:35</div>
+            <div class="airport">Fortaleza</div>
+          </div>
+        </div>
+        <a class="info-link" target="_blank" rel="noopener"
+           href="https://www.skyscanner.com.br/transporte/passagens-aereas/fln/for/260530/config/11562-2605301000--32269-1-11607-2605301535?adultsv2=1&cabinclass=economy&childrenv2=&ref=home&rtn=0&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false">
+          Ver no Skyscanner →
+        </a>
+      </div>
+
+      <div class="info-card">
+        <div class="info-label">Voo de volta</div>
+        <div class="info-route">FOR <span class="arrow">→</span> FLN</div>
+        <div class="info-date">terça, 30 de junho de 2026</div>
+        <div class="times">
+          <div class="time-block">
+            <div class="hour">12:50</div>
+            <div class="airport">Fortaleza</div>
+          </div>
+          <div class="flight-line"></div>
+          <div class="time-block">
+            <div class="hour">19:20</div>
+            <div class="airport">Floripa</div>
+          </div>
+        </div>
+        <a class="info-link" target="_blank" rel="noopener"
+           href="https://www.skyscanner.com.br/transporte/passagens-aereas/for/fln/260630/config/11607-2606301250--32531-1-11562-2606301920?adultsv2=1&cabinclass=economy&childrenv2=&inboundaltsenabled=false&outboundaltsenabled=false&preferdirects=false&rtn=0">
+          Ver no Skyscanner →
+        </a>
+      </div>
+
+      <div class="info-card stay">
+        <div class="info-label">Hospedagem</div>
+        <div class="info-route">Airbnb · Fortaleza</div>
+        <div class="info-date">check-in 01/06 · check-out 30/06</div>
+        <div class="stay-detail">
+          <div class="nights">29 noites</div>
+          <div class="nights-label">para 3 pessoas · com piscina</div>
+        </div>
+        <a class="info-link" target="_blank" rel="noopener"
+           href="https://www.airbnb.com.br/rooms/1009635332612288740?adults=3&check_in=2026-06-01&check_out=2026-06-30&location=Fortaleza%2C%20CE&search_mode=regular_search&amenities%5B%5D=5">
+          Ver no Airbnb →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="activities">
+  <div class="container">
+    <div class="section-eyebrow">A diversão</div>
+    <h2 class="section-title">O que vamos fazer (sobra programa)</h2>
+    <p class="section-intro">
+      Junho é temporada de vento no Nordeste — quer dizer kite todo dia se quisermos.
+      Mas tem muito mais. O litoral cearense tem dunas, falésias, lagoas e algumas
+      das praias mais bonitas do Brasil. E ainda dá pra esticar até o Maranhão.
+    </p>
+
+    <div class="activities-grid">
+
+      <article class="activity">
+        <div class="activity-image img-kitesurf-cumbuco">
+          <span class="badge hero-pick">Imperdível</span>
+        </div>
+        <div class="activity-content">
+          <h3>Kitesurf no Cumbuco</h3>
+          <div class="location">35 min de Fortaleza</div>
+          <p>Spot consagrado, vento cross-shore quase todo dia em junho. Tem escolas, aluguel de equipamento e a Lagoa do Parnamirim pra treinar manobras com água plana.</p>
+          <div class="tags">
+            <span class="tag">Kite</span>
+            <span class="tag">Vento garantido</span>
+            <span class="tag">Day trip</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="activity">
+        <div class="activity-image img-kitesurf-prea">
+          <span class="badge hero-pick">Imperdível</span>
+        </div>
+        <div class="activity-content">
+          <h3>Kitesurf no Preá</h3>
+          <div class="location">Vizinha de Jericoacoara</div>
+          <p>Considerada uma das melhores praias do mundo pra kite. Vento forte e constante, água rasa por quilômetros. Vale dormir lá uns dias e cair na água sem parar.</p>
+          <div class="tags">
+            <span class="tag">Kite</span>
+            <span class="tag">Top mundial</span>
+            <span class="tag">Pernoite</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="activity">
+        <div class="activity-image img-lencois">
+          <span class="badge hero-pick">Bucket list</span>
+        </div>
+        <div class="activity-content">
+          <h3>Lençóis Maranhenses</h3>
+          <div class="location">Maranhão · 3 a 4 dias</div>
+          <p>Dunas brancas e lagoas turquesa até o horizonte. Junho é o início da temporada das lagoas cheias — exatamente quando a gente vai estar lá. Compensa o voo até Parnaíba ou São Luís.</p>
+          <div class="tags">
+            <span class="tag">Trekking</span>
+            <span class="tag">Lagoas</span>
+            <span class="tag">Voo extra</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="activity">
+        <div class="activity-image img-jeri">
+          <span class="badge">Vila</span>
+        </div>
+        <div class="activity-content">
+          <h3>Jericoacoara</h3>
+          <div class="location">300 km a oeste · 4-5h</div>
+          <p>Ruas de areia, pôr do sol da Duna do Pôr do Sol, Pedra Furada, forró na rua principal. Base perfeita pra esticar até a Lagoa do Paraíso e Tatajuba de buggy.</p>
+          <div class="tags">
+            <span class="tag">3-4 noites</span>
+            <span class="tag">Pôr do sol</span>
+            <span class="tag">Buggy</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="activity">
+        <div class="activity-image img-canoa">
+          <span class="badge">Litoral leste</span>
+        </div>
+        <div class="activity-content">
+          <h3>Canoa Quebrada</h3>
+          <div class="location">160 km a leste · 2h30</div>
+          <p>Falésias vermelhas, Broadway agitada à noite, passeios de buggy nas dunas e jangada ao pôr do sol. Bom pra um fim de semana fora da capital.</p>
+          <div class="tags">
+            <span class="tag">Falésias</span>
+            <span class="tag">Vida noturna</span>
+            <span class="tag">Buggy</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="activity">
+        <div class="activity-image img-futuro">
+          <span class="badge">Em Fortaleza</span>
+        </div>
+        <div class="activity-content">
+          <h3>Praia do Futuro</h3>
+          <div class="location">Fortaleza · 15 min do centro</div>
+          <p>Barracas gigantes, frutos do mar fresquíssimos. Crocobeach e Chico do Caranguejo são parada obrigatória. Quinta-feira tem caranguejada lendária com música ao vivo.</p>
+          <div class="tags">
+            <span class="tag">Comida</span>
+            <span class="tag">Barracas</span>
+            <span class="tag">Sempre</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="activity">
+        <div class="activity-image img-morro">
+          <span class="badge">Litoral leste</span>
+        </div>
+        <div class="activity-content">
+          <h3>Morro Branco &amp; Praia das Fontes</h3>
+          <div class="location">85 km a leste · 1h30</div>
+          <p>Labirinto de falésias coloridas, areias multicoloridas vendidas em garrafinhas, mirantes incríveis. Combo clássico com a Praia das Fontes ali do lado.</p>
+          <div class="tags">
+            <span class="tag">Falésias</span>
+            <span class="tag">Day trip</span>
+            <span class="tag">Mirantes</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="activity">
+        <div class="activity-image img-beachpark">
+          <span class="badge">Aquiraz</span>
+        </div>
+        <div class="activity-content">
+          <h3>Beach Park</h3>
+          <div class="location">Aquiraz · 30 min</div>
+          <p>Maior parque aquático da América Latina. Insano, Vainkára, piscinas de praia. Um dia de pura bobeira que vale o ingresso — pelo menos uma vez no mês.</p>
+          <div class="tags">
+            <span class="tag">Adrenalina</span>
+            <span class="tag">Day trip</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="activity">
+        <div class="activity-image img-mucuripe">
+          <span class="badge">Em Fortaleza</span>
+        </div>
+        <div class="activity-content">
+          <h3>Mucuripe &amp; Centro Histórico</h3>
+          <div class="location">Fortaleza</div>
+          <p>Mercado Central pra comprar rede e cachaça, Catedral Metropolitana, Theatro José de Alencar, jangadas no Mucuripe ao amanhecer. Programa pra um dia mais cultural.</p>
+          <div class="tags">
+            <span class="tag">Cultura</span>
+            <span class="tag">Compras</span>
+            <span class="tag">A pé</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="budget">
+  <div class="container">
+    <div class="section-eyebrow">A grana</div>
+    <h2 class="section-title">A conta por pessoa</h2>
+    <p class="section-intro">
+      Os dois custos fixos da viagem. Comida, kite, passeios extras e o que mais
+      vier vão por cima — cada um decide o quanto quer gastar.
+    </p>
+
+    <div class="budget-cards">
+      <div class="budget-card">
+        <div class="item">Voo ida + volta</div>
+        <div class="price"><span class="currency">R$</span>2.100</div>
+        <div class="note">por pessoa, dos links acima</div>
+      </div>
+      <div class="budget-card">
+        <div class="item">Airbnb (1/3)</div>
+        <div class="price"><span class="currency">R$</span>1.776</div>
+        <div class="note">29 noites dividido por 3</div>
+      </div>
+    </div>
+
+    <div class="budget-total">
+      <div class="label-block">
+        <div class="label">Total fixo por pessoa</div>
+        <div class="parcela-line">e parceladinho se compra até o mundo, gente</div>
+      </div>
+      <div class="amount-block">
+        <div class="amount">R$ 3.876</div>
+        <div class="amount-sub">ou ~R$ 323/mês em 12x</div>
+      </div>
+    </div>
+
+    <div class="callouts">
+      <div class="callout note">
+        <div class="callout-title">A ideia da comida</div>
+        <p>Cozinhar no Airbnb. Com <strong>3 pessoas pra dividir o rodízio</strong> de tarefas, compensa muito mais do que comer fora todo dia. Feirinha do bairro + churrasco no fim de semana resolvem.</p>
+      </div>
+      <div class="callout warn">
+        <div class="callout-title">Disclaimer Biscoito</div>
+        <p>O <strong>Biscoito</strong> tá enrolado com trabalho e provavelmente não consegue ir. Mas se ele liberar, refazemos as divisões — Airbnb dividido por 4 cai bastante e o quarto extra rola fácil.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Bora trocar o frio pelo vento?</h2>
+  <p>
+    Confirma aí até o fim do mês pra gente travar os preços dos voos e o Airbnb
+    antes que alguém pegue na nossa frente.
+  </p>
+  <div class="cta-buttons">
+    <a class="cta-button" target="_blank" rel="noopener"
+       href="https://www.airbnb.com.br/rooms/1009635332612288740?adults=3&check_in=2026-06-01&check_out=2026-06-30&location=Fortaleza%2C%20CE&search_mode=regular_search&amenities%5B%5D=5">
+      Ver hospedagem
+    </a>
+    <a class="cta-button secondary" target="_blank" rel="noopener"
+       href="https://www.skyscanner.com.br/transporte/passagens-aereas/fln/for/260530/config/11562-2605301000--32269-1-11607-2605301535?adultsv2=1&cabinclass=economy&childrenv2=&ref=home&rtn=0&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false">
+      Ver os voos
+    </a>
+  </div>
+</section>
+
+<footer>
+  Proposta do Rafa <span class="heart">♥</span> Manitoba &amp; Neskau · Floripa → Fortaleza · Junho de 2026
+</footer>
+
+</body>
+</html>
